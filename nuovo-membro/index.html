@@ -135,6 +135,38 @@
       </div>
 
 
+      <!-- NUMERO FACOLTATIVO -->
+
+      <div class="mt-3">
+
+        <label
+          for="orderNumber"
+          class="form-label">
+
+          Numero
+          <span class="text-secondary">
+            (facoltativo)
+          </span>
+
+        </label>
+
+        <input
+          id="orderNumber"
+          type="text"
+          class="form-control"
+          placeholder="Es. 42"
+          inputmode="numeric"
+          maxlength="2"
+          pattern="[0-9]{2}"
+        >
+
+        <div class="form-text">
+          Inserisci il numero a 2 cifre, se necessario.
+        </div>
+
+      </div>
+
+
       <button
         id="send"
         class="btn btn-success w-100 mt-3">
