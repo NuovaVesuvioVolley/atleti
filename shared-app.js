@@ -393,6 +393,36 @@ $('send').onclick = async () => {
   }
 
 
+  /*
+    NUMERO FACOLTATIVO
+    Deve essere vuoto oppure composto
+    esattamente da 2 cifre.
+  */
+
+  const numberInput =
+    $('orderNumber');
+
+
+  const orderNumber =
+    numberInput
+      ? numberInput.value.trim()
+      : '';
+
+
+  if (
+    orderNumber &&
+    !/^\d{2}$/.test(orderNumber)
+  ) {
+
+    alert(
+      'Il numero deve essere composto da 2 cifre.'
+    );
+
+    return;
+
+  }
+
+
   try {
 
     const section =
@@ -411,6 +441,9 @@ $('send').onclick = async () => {
           first_name: first,
 
           last_name: last,
+
+          order_number:
+            orderNumber || null,
 
           items: cart.map(item => ({
 
@@ -437,6 +470,11 @@ $('send').onclick = async () => {
     $('firstName').value = '';
 
     $('lastName').value = '';
+
+
+    if (numberInput) {
+      numberInput.value = '';
+    }
 
 
     renderCart();
